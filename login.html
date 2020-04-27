@@ -1,6 +1,4 @@
 <!doctype html>
-{% block content %}
-
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -16,7 +14,35 @@
   
   <body>
   <!-- Dropdown menu -->
-  {% include 'dropdown_menu.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">Basic web wallet</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="https://yillkid.github.io/light_wallet.github.io/">Main Page<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="wallet.html">Wallet</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Accounts
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="login.html">Login</a>
+              <a class="dropdown-item" href="http://3.87.137.58:8888/logout">Logout</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./signup.html">Sign Up</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
   <form action="/login" method="POST">
     <div class="form-group">
@@ -40,5 +66,3 @@
 	    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-
-{% endblock %}
