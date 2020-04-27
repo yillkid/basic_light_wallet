@@ -1,6 +1,4 @@
 <!doctype html>
-{% block content %}
-
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -14,10 +12,70 @@
   
   <body>
     <!-- Dropdown menu -->
-    {% include 'dropdown_menu.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">Basic web wallet</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Main Page<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/wallet">Wallet</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Accounts
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/login">Login</a>
+              <a class="dropdown-item" href="http://127.0.0.1:8888/logout">Logout</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Set password</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- Name card -->
-    {% include 'profile.html' %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="static/js/profile.css" rel="stylesheet" id="profile-css">
+    <script src="static/js/req_balance.js"></script>
+    <script>
+        get_balance_by_user("http://3.87.137.58:8888/get_balance?user=john");
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card card-inverse card-info">
+                    <img class="card-img-top" src="https://picsum.photos/200/150/?random">
+                    <div class="card-block">
+                        <figure class="profile">
+                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="">
+                        </figure>
+                        <h4 class="card-title mt-3">john</h4>
+                        <div class="meta card-text">
+                            <a>Role: Engineer</a>
+                            <div id="balance"></div>
+                        </div>
+                        <div class="card-text">
+                            Hello! I am a software engineer live in Zhushan.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small>You are currently in Zhushan  </small>
+                        <a href="/pay" class="btn btn-info" role="button">GoPay</a>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
 
     <!-- jQuery, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
@@ -28,5 +86,3 @@
 	    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-
-{% endblock %}
